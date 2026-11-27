@@ -1,21 +1,21 @@
-# GitHub branch protection - `main`
+# GitHub branch protection â€” `main`
 
-Keep this repository private. Do not change it to public to obtain protection features.
+**Repository:** `arslankhanwazir/clinical-intelligence-platform`
+**Visibility:** Private
+**Account plan confirmed by owner:** GitHub Free (2026-11-28)
 
-## Configure when the GitHub plan allows it
+## Plan limitation
+For this personal GitHub Free account, server-enforced branch protection/rulesets are unavailable for this private repository. The repository must remain private; do not make it public to obtain branch protection. This limitation is explicitly accepted for M0. Reassess if the plan changes.
 
-1. Open `https://github.com/arslankhanwazir/clinical-intelligence-platform/settings/rules`.
-2. Choose **New branch ruleset**.
-3. Name it `protect-main` and target the default branch `main`.
-4. Set enforcement to **Active**.
-5. Enable **Require a pull request before merging**, **Restrict deletions**, and **Block force pushes**.
-6. Do not require a second-person approval while the project has only one maintainer; add an independent reviewer when one is available.
-7. After CI checks exist, require the relevant checks to pass before merging.
-
-## GitHub plan limitation
-
-Current GitHub documentation lists branch protection/rulesets for public repositories on GitHub Free, and for private repositories on GitHub Pro, Team and Enterprise. Confirm the plan attached to this personal account in GitHub billing/settings. If private-repository protection is unavailable, keep the repository private and record the limitation; use feature branches, pull requests where available, local review and no-force-push discipline until the plan permits enforcement.
+## Manual branch and pull-request policy
+Until server-enforced protection is available:
+1. Keep `main` as the default branch and do not work directly on it.
+2. Create a feature branch for every change.
+3. Use a pull request for each merge where supported; inspect the full diff and run tests/scans before merging.
+4. As the sole maintainer, perform and document a self-review; do not imply that this is independent review.
+5. Do not force-push, rewrite shared history, delete `main`, or bypass failed security checks.
+6. Add an independent reviewer before accepting external contributions or handling any approved clinical environment.
+7. Keep the repository private and synthetic-data-only during development.
 
 ## Evidence
-
-Record the active ruleset URL or screenshot and date in `docs/project/m0-closeout.md` after configuration. A local Git convention is not the same as server-enforced branch protection.
+The owner confirmed GitHub Free on 2026-11-28. This file records the plan limitation and accepted manual policy. It is not server-enforced branch protection.
