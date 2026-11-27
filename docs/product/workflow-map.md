@@ -53,3 +53,9 @@ flowchart TD
 - Observed current-state process: **not yet collected**.
 - Product owner validation: **pending**.
 - Clinical reviewer validation: **pending**.
+
+## Product-owner constraints for proposed workflow (2026-11-28)
+
+- The proposed "context adequate?" step is a placeholder for a future clinician-approved requirement. Until a qualified clinician defines and signs the required context, the interface may show missing/unmapped/stale/conflicting data but must not make a clinical sufficiency or safety determination.
+- Accept/attest means the clinician records a review decision inside NORTHSTAR. It does not finalize or sign the official record and must not trigger HIS/EHR write-back. v1 remains read-only at the integration boundary.
+- This remains a proposed workflow. It is not an observed workflow from a real clinic and must be reconciled with the target site's actual process before M1 can exit.
