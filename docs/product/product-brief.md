@@ -36,7 +36,7 @@ Measure the existing workflow first, then compare the assisted workflow using pr
 
 ## Approval state
 
-- Product owner: Arslan Khan - signature/date pending.
+- Product owner: Arslan Khan - draft direction approved in project chat on 2026-11-28; approval record: docs/product/product-owner-approval.md.
 - Qualified clinical reviewer: not yet identified in the project record.
 - Target clinic and current-state workflow: not yet identified or observed.
 - Clinical, regulatory, privacy and security approvals: not obtained.

@@ -26,3 +26,10 @@ These are product-level requirements, not clinical rules. Clinical field lists, 
 - Which FHIR resources and profiles are actually available at the target site: integration discovery.
 - Required languages and RTL scope: target clinic and user testing; do not claim localization before validation.
 - Numerical clinical thresholds and performance acceptance levels: not defined in M1.
+
+## Product-owner approval clarifications (2026-11-28)
+
+- Context completeness may be displayed as a data-quality indicator only. It is not a clinical sufficiency/safety decision and must not drive clinical logic until required fields and rules are approved by a qualified clinician.
+- Clinician accept/attest records review in NORTHSTAR only. It does not sign, finalize or write to the official HIS/EHR record; v1 has no automatic or silent write-back.
+- Pakistan private clinics/hospitals remain an initial market hypothesis, not validated demand or a verified willingness-to-pay finding.
+- These clarifications do not authorize clinical rules, thresholds, recommendations, real-patient use or clinician-independent decisions.

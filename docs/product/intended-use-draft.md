@@ -23,7 +23,7 @@ This wording describes the actual proposed product function; it must not be weak
 
 | Approver | Name / credentials | Decision | Signature | Date |
 |---|---|---|---|---|
-| Product owner | Arslan Khan | Pending |  |  |
+| Product owner | Arslan Khan | Draft direction approved in project chat; formal signature artifact not supplied | Chat approval recorded in product-owner-approval.md | 2026-11-28 |
 | Qualified clinical reviewer | Not identified | Pending |  |  |
 
 ## Review questions

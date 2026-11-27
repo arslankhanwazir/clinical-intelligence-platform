@@ -12,7 +12,8 @@ M1 follows the exact definition of done in `01_clinical_intelligence_milestone_p
 - [x] Intended-use draft prepared with explicit regulatory uncertainty.
 - [ ] Target clinic selected and current-state workflow observed/documented.
 - [ ] Qualified clinician reviewer identified and review recorded.
-- [ ] Product owner signs the product requirements and intended-use draft.
+- [x] Product owner reviewed and approved the product brief, requirements and intended-use direction in project chat on 2026-11-28; approval is recorded in docs/product/product-owner-approval.md.
+- [ ] Formal product-owner signature artifact attached to the approval record, if required by the acceptance gate.
 - [ ] Qualified clinician signs the product requirements and intended-use draft.
 
 **M1 status: DRAFT PREPARED - NOT COMPLETE.** Do not start clinical rule coding. M1 exit requires clinic-specific workflow evidence and both product-owner and clinician sign-off.
