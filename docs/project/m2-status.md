@@ -1,40 +1,35 @@
-# M2 status — Clinical, safety & regulatory scope
+# M2 status - Clinical, safety and regulatory scope
 
-**Status:** DRAFT PREPARATION — BLOCKED FOR CLINICAL APPROVAL
-**Research date:** 2026-11-28
-**Jurisdiction in scope for this research:** Pakistan (initial market hypothesis only)
+**Review date:** 2026-11-28. **Status:** DRAFT PREPARATION COMPLETE FOR PROJECT-TEAM WORK; EXTERNAL APPROVAL BLOCKED.
 
-## What M2 requires under the approved project plan
+## Work completed by the project team
 
-1. Recruit or contract a qualified clinician as clinical safety reviewer.
-2. Select current, licensable guidelines for the chosen jurisdiction.
-3. Review intended purpose and likely medical-device / software-as-a-medical-device implications with qualified regulatory counsel and/or the appropriate DRAP route.
-4. Create a clinical hazard log and safety-case outline.
-5. Define the proposed exclusions and clinical-rule approval workflow.
+- Public-source candidate register and source-rights screening prepared and refreshed.
+- Pakistan-specific and global hypertension guideline candidates recorded without extracting clinical rules.
+- DRAP public regulatory landscape screened through 2026-11-28; current source links and counsel questions recorded.
+- Proposed population exclusions documented as hypotheses for clinician approval.
+- Rule/source approval workflow documented.
+- Preliminary 13-hazard register created without invented risk ratings.
+- Safety-case outline prepared with evidence still open.
+- Clinician reviewer brief, source-review form, hazard-review form and counsel brief prepared.
 
-## Available now
+## External dependencies not completed
 
-- Public-source regulatory and guideline landscape research.
-- Draft source register including publication metadata and reuse restrictions.
-- Draft exclusions carried forward from M1, pending clinician review.
-- Preliminary hazard register with no final clinical risk ratings.
-- Draft rule/source approval workflow; no clinical rules are authored.
-- Regulatory assessment questions and an action plan for qualified advice.
+- No qualified clinician / clinical safety reviewer is engaged.
+- No clinic exists in the project record and no current-state workflow has been observed.
+- No guideline has been selected/approved by a clinician for the NORTHSTAR workflow.
+- No PHL/JPMA, WHO or ISH commercial rights permission has been obtained; sources remain blocked for commercial ingestion/reuse unless permission is confirmed.
+- No Pakistan regulatory counsel has been engaged; no legal opinion or DRAP/MDB determination exists.
+- No risk severity, likelihood, residual-risk or acceptability decision has been approved.
 
-## External dependencies — not available yet
+## Hard restrictions retained
 
-- No target clinic/site is available.
-- No qualified clinician reviewer is available.
-- No regulatory counsel or written DRAP determination has been engaged/obtained.
-- Guideline commercial reuse permissions/interpretations have not been obtained.
-
-## Hard restrictions
-
-- No clinical thresholds, medication algorithms, treatment recommendations or executable clinical rules.
-- No clinical-source content is approved for operational retrieval or model training.
-- No real patient data or live clinical use.
-- No DRAP classification, exemption or approval is claimed.
+- No executable clinical rules, thresholds, medication logic or treatment recommendations.
+- No candidate guideline content in operational retrieval, model context or rule packs.
+- Synthetic data only; no real patient data or clinical use.
+- No DRAP classification, exemption, registration or approval claim.
+- Any future expansion or claim requires review against the exact intended use and jurisdiction.
 
 ## M2 exit decision
 
-M2 is **not complete** until scope and exclusions are clinically approved, the source/version/licensing policy is approved, the rule approval workflow is accepted, the clinical hazard register is reviewed, and regulatory assessment actions are assigned with qualified advice. If the reviewer, approved sources or regulatory advice remain unavailable, continue only with synthetic interface and infrastructure work, as directed by the master plan.
+M2 is **not complete** until the external M2 checklist items are satisfied and the required signed approvals/evidence exist. The team has completed all document drafting and public-source screening currently possible without inventing clinical or legal decisions. Continue only with work explicitly permitted by the master plan; do not start clinical rule coding or patient use.
