@@ -1,83 +1,36 @@
-# Delivery Milestones and Execution Gates
+# Milestone roadmap - aligned to the approved three-PDF blueprint
 
-This is the controlling execution sequence. Milestones are completed by evidence and acceptance criteria, not by dates alone. A milestone may be blocked. Do not bypass a clinical, privacy, security, or regulatory gate to meet a schedule.
+**Roadmap source:** `01_clinical_intelligence_milestone_plan.pdf`, version 1.0, prepared 28 November 2026. The roadmap IDs and sequence below intentionally match that document. Dates are planning estimates, not guarantees.
 
-## M0 — Independent foundation
-**Tools:** Windows CMD, Git, private GitHub repository when ownership/access is confirmed, VS Code. Use Claude Code as the primary implementation assistant only after the repository baseline is committed; use other assistants for review, not simultaneous writes.
+## Current status
 
-**Work:** establish clean-room ownership boundaries; inspect applicable prior-employment, invention-assignment, confidentiality, and third-party licence obligations; confirm the new project has no imported confidential assets; establish repository structure, policies, decision log, risk register, and agent workflow.
+- **M0 - IN PROGRESS / close-out checks pending.** The private repository and first push are complete. `CONTRIBUTING.md` and the Gitleaks workflow are now being added. Branch protection and a successful secret-scan run still require verification. Ownership/IP obligations must be reviewed by the project owner.
+- **M1 - DRAFT PACK PREPARED / not signed off.** Product charter and workflow artifacts are being prepared. A target clinic and qualified clinician reviewer have not yet been identified in this repository. The target-clinic as-is workflow and clinician sign-off therefore remain open.
+- **M2 onward - NOT STARTED.**
 
-**Exit evidence:** reviewed README/security/product/architecture documents; `.gitignore` checked; no secrets or patient data; project ownership and contributor process recorded; first baseline commit exists. Legal obligations must be reviewed by the relevant parties/adviser where needed; this project record is not legal advice.
+## Roadmap
 
-## M1 — Clinical scope and intended use
-**Tools:** clinician workshops/review (qualified clinician required), Figma/FigJam for workflow maps, official regulator and guideline publications, requirements register.
+| ID | Planning window | Milestone | Main work | Exit gate |
+|---|---|---|---|---|
+| M0 | Days 1-3 | Independent foundation | Private repository, ownership/IP separation, workstation/tool check, source register, risk log, contribution rules and secret scan. | Repository/access model approved; branch protection where available; required foundation files; secret scan clean; no production data; ownership/IP checklist reviewed. |
+| M1 | Week 1 | Product charter & workflow | User roles, one narrow workflow, target-clinic workflow map, patient context, inputs, output, handoff, operational failures, non-goals, pilot hypothesis and measurable outcomes. | One-page product brief, requirements, workflow diagram, personas, non-goals, metric definitions and risks; intended-use draft approved by product owner and qualified clinician. |
+| M2 | Weeks 1-2 | Clinical & regulatory boundary | Qualified clinical safety reviewer, current/licensable guidelines, exclusions, hazard analysis, DRAP/regulatory review and safety-case outline. | Signed scope, source/version policy, exclusions, rule approval workflow, regulatory actions and clinical hazards register. |
+| M3 | Weeks 2-3 | Architecture & security design | Trust boundaries, threat model, tenant/site isolation, access matrix, audit events, privacy questions, local inference boundary, retention, backup and deployment topology. | Architecture, threat model, data-flow map, ADRs, roles/permissions matrix, privacy-impact questions and deployment decision accepted. |
+| M4 | Weeks 3-5 | Secure foundation | API shell, database migrations, OIDC, tenant middleware, server-side RBAC/ABAC, privileged MFA, rate limits, audit events and secrets. | Authorization and tenant-isolation tests pass; MFA for privileged roles; audit path verified; no secret leaks. |
+| M5 | Weeks 5-7 | Patient context & interoperability | Patients, encounters, observations, medications, allergies, normalization, provenance, freshness/missing/conflict flags and synthetic FHIR. | Synthetic records import reproducibly; source, timestamps, units and transformations are preserved. |
+| M6 | Weeks 7-9 | Deterministic clinical rule pack | Clinician-approved hypertension follow-up rules, units, applicability, exclusions, missing-data gates and versioning. | Clinician-signed rules; unit tests and case-level expected results pass. |
+| M7 | Weeks 8-10 | Evidence library & provenance | Approved source ingestion, page/section references, versions/effective dates, licences, retrieval and freshness. | Every evidence item is traceable; stale/unsupported sources are blocked or flagged. |
+| M8 | Weeks 10-12 | AI synthesis & verification | Model gateway, structured output, evidence-linked draft, verifier, abstention and prompt-injection controls. | Verifier rejects unsupported claims; safe-abstention scenarios pass. |
+| M9 | Weeks 9-14 | Frontend workspace | Figma system, command center, patient timeline, encounter workspace, Evidence Ledger, review flow and administration. | Design review, keyboard/accessibility, responsive and synthetic end-to-end tests pass. |
+| M10 | Weeks 14-17 | Clinical evaluation & security QA | Synthetic benchmark, clinician adjudication, adversarial tests, access-control tests, DAST and threat-model update. | No unresolved critical/high security issues; clinical thresholds set by reviewers and met. |
+| M11 | Weeks 17-20 | Deployment & integration hardening | Linux on-prem/private-cloud packaging, backup/restore, monitoring, FHIR adapter, performance, upgrade and rollback. | Repeatable install and recovery drill; performance measured on target hardware. |
+| M12 | Weeks 20-24 | Pilot readiness | Site SOPs, training, permissions, privacy/security documents, pilot protocol, support and incident plan. | Formal go/no-go by clinical, security, regulatory and institutional stakeholders. |
+| M13 | After gates | Controlled pilot & launch | Limited supervised workflow only after approvals; measure outcomes; publish synthetic demo and verified results. | Pilot evidence reviewed; public claims match results; incident and rollback process ready. |
 
-**Work:** define user roles, setting, patient population, inputs, outputs, exclusions, workflow, foreseeable misuse, source licensing, and clinical owner. Obtain qualified review of the proposed hypertension follow-up workflow. Determine applicable DRAP and other regulatory requirements before clinical deployment.
+## Critical sequencing rules
 
-**Exit evidence:** signed-off intended-use statement and workflow; named clinical reviewer; approved source list and version policy; documented regulatory assessment/next action; initial hazards and exclusions. No rules are encoded before clinical review.
-
-## M2 — Security architecture and threat model
-**Tools:** architecture diagrams, STRIDE-style threat modelling, OWASP ASVS/API/LLM guidance, NIST CSF 2.0 mapping, GitHub security features where available, Gitleaks or equivalent local secret scanning.
-
-**Work:** define trust boundaries, assets, attacker scenarios, identity lifecycle, OIDC, RBAC+ABAC, MFA for privileged users, tenant isolation, key/secrets handling, audit integrity, backup/restore, logging, incident response, AI prompt-injection and data-leakage controls.
-
-**Exit evidence:** threat model and mitigations reviewed; authorization matrix; tenant-isolation test plan; data-flow and retention map; security requirements linked to tests. Controls are not called implemented until tested.
-
-## M3 — Synthetic domain model and API skeleton
-**Tools:** Python, FastAPI, Pydantic, pytest, OpenAPI; PostgreSQL planned for integration. SQLite may be used only for isolated early tests if it does not hide PostgreSQL-specific behavior.
-
-**Work:** model synthetic patients, encounters, observations, medication statements and provenance; implement validation and missing/conflicting/stale-data detection. Keep tenant and access checks server-side.
-
-**Exit evidence:** documented schemas and API contracts; synthetic fixtures; unit/integration tests; no real patient information; negative authorization tests.
-
-## M4 — Deterministic clinical rules
-**Tools:** Python rule module, version-controlled rule packs, pytest, clinician-reviewed test cases.
-
-**Work:** represent only clinician-approved rules with explicit inputs, units, thresholds, exclusions, missing-data handling, version and effective date. The language model must not invent or silently modify rules.
-
-**Exit evidence:** clinical sign-off for each rule pack; boundary, unit-conversion, missing/conflicting-data and regression tests; traceable rule version in every result.
-
-## M5 — Evidence registry and retrieval
-**Tools:** controlled source registry, document parsing, PostgreSQL; evaluate pgvector only after a retrieval benchmark; source/version metadata and citation tests.
-
-**Work:** ingest only approved, licensed sources; record publisher, title, URL, publication/effective date, version, jurisdiction, review date and allowed use; retrieve passages with exact source references; expire or flag stale sources.
-
-**Exit evidence:** source approval process; reproducible ingestion; citation/provenance validation; stale-source handling; no unsupported evidence presented as authoritative.
-
-## M6 — AI orchestration and verification
-**Tools:** model-provider interface, Ollama only after a model is installed and benchmarked, structured output validation, pytest; optional external models only after privacy and contractual review.
-
-**Work:** use the model to summarize context and draft explanations within a constrained schema. Keep clinical rules deterministic. Validate references, detect unsupported claims, abstain when data/evidence is insufficient, and prevent unrestricted tool or write access.
-
-**Exit evidence:** model/version recorded; structured-output and prompt-injection tests; citation checker; abstention tests; sensitive-data leakage tests; no automatic diagnosis, prescribing, or finalization.
-
-## M7 — Clinical workspace and interaction design
-**Tools:** Figma/FigJam for approved design system and flows; Figma Make for prototypes if useful; Next.js + TypeScript for production UI; Playwright for browser tests; accessible charting and component libraries chosen after design review.
-
-**Work:** implement role-aware workspaces, patient/encounter timeline, missing/conflicting-data panel, evidence references, deterministic rule results, Evidence Ledger, and clinician accept/edit/reject workflow. Use glass/3D effects only as restrained visual treatment; clinical readability and accessibility take priority.
-
-**Exit evidence:** usability review with clinicians; keyboard and responsive checks; role-based UI tests backed by server authorization; no fake clinical metrics or synthetic data presented as real.
-
-## M8 — Safety, security and quality evaluation
-**Tools:** pytest, Playwright, API/security test suite, Gitleaks or equivalent, dependency/SBOM tooling, OWASP ZAP in an isolated test environment, clinician-reviewed synthetic benchmark.
-
-**Work:** test clinical correctness against approved expected results; measure citation accuracy, unsupported statements, missing-data detection, conflict handling, abstention, dangerous false negatives, repeatability, authorization, tenant isolation, rate limits, backup recovery and audit integrity.
-
-**Exit evidence:** reproducible evaluation report with limitations and unresolved hazards; remediation of release-blocking findings; independent security review appropriate to the risk. A small synthetic benchmark is not proof of clinical safety.
-
-## M9 — Customer-controlled deployment prototype
-**Tools:** Linux deployment target, PostgreSQL, OIDC provider (evaluate Keycloak), encrypted storage, managed secrets, monitoring, backup/restore automation, infrastructure-as-code after deployment needs are known. Docker is optional for the current workstation, not a prerequisite for M0.
-
-**Work:** build installation, upgrade, rollback, offline/limited-connectivity behavior, tenant separation, operations and support procedures. Keep patient processing in customer-controlled infrastructure unless a separately reviewed hosting model is approved.
-
-**Exit evidence:** repeatable install; security configuration; restore drill; upgrade/rollback test; operational runbook; privacy and hosting review.
-
-## M10 — Controlled pilot-readiness review
-**Tools:** release checklist, clinical governance review, security assessment, regulatory counsel/authority engagement as applicable, training and monitoring plan.
-
-**Work:** assess intended use, clinical evidence, usability, safety hazards, regulatory position, privacy, security, support, incident response, contracts and institutional permissions.
-
-**Exit evidence:** documented go/no-go approval by the responsible clinical, security, regulatory and institutional stakeholders. This milestone is pilot readiness only; it is not automatic permission to deploy or provide care.
-
-## Global stop conditions
-Stop progression if real patient data enters an unapproved environment, a serious security issue remains unresolved, a clinical rule lacks qualified approval, an evidence source is unlicensed/unverified, or the regulatory/intended-use position is unclear for the proposed activity.
+1. M1 workflow mapping must distinguish observed target-clinic practice from our proposed product workflow. Do not present an assumption as a fact about a clinic.
+2. M2 clinical and regulatory approval is a blocker to clinical rules and any real clinical use. Do not improvise numeric thresholds, medication advice or escalation pathways.
+3. M4 security foundation is a blocker to any real patient data.
+4. Synthetic-only design, test data, screenshots and demos remain the rule until applicable approvals are obtained.
+5. The language model never becomes the system of record, rules authority, authorization engine or audit authority.

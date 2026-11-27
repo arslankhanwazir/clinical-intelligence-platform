@@ -40,3 +40,7 @@ Use synthetic data only until clinical, regulatory, security, privacy, and insti
 
 ## Project control
 `docs/project/milestones.md` is the execution sequence. `docs/project/tooling-and-agent-workflow.md` defines how coding assistants and human review are used. Git history is the source of truth for code and approved documentation changes.
+
+## System working name
+
+**Project Northstar** is the internal working codename for this Clinical Intelligence Platform. It is not a cleared public brand or registered trademark. The repository name remains `clinical-intelligence-platform`. Public naming, domain selection and trademark clearance are deferred until a separate brand review.
