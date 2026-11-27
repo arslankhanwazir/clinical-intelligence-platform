@@ -1,25 +1,35 @@
-# M1 acceptance checklist — Product charter & workflow
+# M1 acceptance checklist - Product charter and workflow
 
-M1 follows the definition of done in `01_clinical_intelligence_milestone_plan.pdf`.
+**Reference:** `01_clinical_intelligence_milestone_plan.pdf`, M1 / Week 1.
+**Review date:** 2026-11-28.
+**Status:** DRAFT PREPARED - BLOCKED - NOT COMPLETE.
 
-- [x] Draft one-page product brief prepared.
-- [x] Draft product requirements prepared.
-- [x] Proposed workflow diagram prepared and clearly distinguished from an observed clinic workflow.
-- [x] Draft personas/roles prepared.
+## Product-owner-controlled deliverables
+
+- [x] One-page product brief prepared.
+- [x] Product requirements prepared; clinical field definitions and medical logic remain unapproved.
+- [x] Proposed workflow diagram prepared and explicitly distinguished from an observed clinic workflow.
+- [x] User personas and roles prepared.
 - [x] V1 non-goals documented.
-- [x] Success metric definitions and baseline-first plan prepared; no time-savings figures invented.
-- [x] Preliminary product risks documented; this is not the formal M2 hazard analysis.
-- [x] Intended-use draft prepared with explicit regulatory uncertainty.
-- [ ] Target clinic selected and current-state workflow observed/documented.
-- [ ] Qualified clinician reviewer identified and review recorded.
-- [x] Product-owner review and approval recorded in project chat on 2026-11-28 and stored in `docs/product/product-owner-approval.md`.
-- [ ] Qualified clinician signs the product requirements and intended-use draft.
+- [x] Success metric definitions and baseline-first measurement plan prepared; no performance or time-saving result invented.
+- [x] Preliminary product risks documented (not the formal M2 clinical hazard analysis).
+- [x] Intended-use draft prepared with explicit DRAP / SaMD uncertainty.
+- [x] Product-owner approval given in project chat on 2026-11-28 and recorded in `docs/product/product-owner-approval.md`.
+- [x] Three product-owner clarifications recorded: no clinical sufficiency gate without clinician approval; attestation is NORTHSTAR-only and does not finalize/write back to the official HIS/EHR; market demand remains a hypothesis.
+- [x] Clinic walkthrough template, clinician review brief and baseline measurement form prepared for later site access.
 
-## Current validation status — 2026-11-28
+## External M1 exit requirements
 
-- Target clinic/site: NONE currently available. No clinic workflow has been observed; the workflow map remains a proposal.
-- Qualified clinician reviewer: NONE currently available. Clinical review and sign-off remain pending.
-- Product-owner approval: RECORDED in project chat and `product-owner-approval.md`. This is an internal product-owner approval record, not a clinician, institutional, legal, regulatory or security approval.
-- Separate wet-signature or qualified e-signature artifact: not supplied. Confirm whether a separate formal artifact is required by the eventual clinic/institution or regulatory process; do not represent one as supplied.
+- [ ] Select a real target clinic/site with permission to observe its process.
+- [ ] Observe and document the actual current-state workflow at that site, including inputs, outputs, handoffs and operational failures.
+- [ ] Identify and verify a suitably qualified clinician reviewer.
+- [ ] Obtain clinician review and sign-off of the product requirements and intended-use draft.
 
-**M1 status: DRAFT PREPARED — BLOCKED — NOT COMPLETE.** M1 exit requires the target-clinic current-state workflow and the required product-owner and qualified-clinician approval of the product requirements and intended-use draft. Do not start clinical rule coding, use real patient data or make live clinical recommendations on the basis of this draft.
+## Evidence and limits
+
+- Target clinic/site: **NONE currently available**. No actual clinic workflow has been observed.
+- Qualified clinician reviewer: **NONE currently available**. No clinician approval is claimed.
+- Product-owner approval: **RECORDED** in project chat and `product-owner-approval.md` on 2026-11-28. This is a written project-owner approval record, not a clinician, institutional, legal, regulatory or security approval. A separate wet/e-signature may be required by a future institution; none is claimed here.
+- The current workflow map is a proposal for validation, not a description of any real clinic.
+
+**M1 exit decision:** Do not mark M1 complete. The remaining site observation and clinician review cannot be performed honestly without access to a real clinic and qualified clinician. No clinical rule coding, real patient data or live clinical recommendations are authorized by this draft.
