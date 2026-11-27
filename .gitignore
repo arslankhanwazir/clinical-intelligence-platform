@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Node / frontend builds
+node_modules/
+.next/
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Local/private data and generated artifacts
+/data/
+uploads/
+logs/
+reports/generated/
+*.sqlite3
+*.db
+*.log
+*.bak
+
+# OS and editor
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
