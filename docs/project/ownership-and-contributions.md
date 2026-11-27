@@ -15,3 +15,10 @@ Develop from independently written requirements and public, cited sources. Do no
 - Every dependency and model must have a recorded licence, source and version.
 - Synthetic test data must be clearly labelled and must not be derived from identifiable patient records.
 - Keep a changelog for material clinical, security, rule and model changes.
+## Project-owner review record â€” 2026-11-28
+The project owner confirms the following for the current M0 close-out:
+- NORTHSTAR is being developed independently using newly written project code and public information.
+- The owner reports no known employment, contractor or NDA agreement that assigns NORTHSTAR work to another party or restricts this independent development.
+- The owner has reviewed and accepts the clean-room, licensing, contribution and no-unauthorized-access requirements above.
+
+This is the project owner's statement, not an independent legal review or a guarantee about unknown obligations. Revisit this record if employment, contract, ownership or contributor circumstances change.
