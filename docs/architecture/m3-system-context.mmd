@@ -1,0 +1,21 @@
+flowchart TB
+  subgraph CustomerBoundary[Customer-controlled deployment boundary - future approved environment]
+    Clinician[Clinician / clinic administrator]
+    Web[Web workspace]
+    API[FastAPI modular monolith]
+    IDP[Keycloak OIDC]
+    DB[(PostgreSQL)]
+    Audit[Restricted append-only audit store]
+    Model[Local/private model gateway]
+    FHIR[FHIR R4 read/import adapter]
+    Clinician --> Web
+    Web --> API
+    API <--> IDP
+    API --> DB
+    API --> FHIR
+    API --> Model
+    API --> Audit
+  end
+  Sources[Approved and versioned evidence sources - pending M2] --> API
+  ExternalEHR[Customer EHR/HIS - read path only] <--> FHIR
+  PublicDemo[Public synthetic demo - no PHI] -. isolated .-> DemoApp[Separate demo environment]
