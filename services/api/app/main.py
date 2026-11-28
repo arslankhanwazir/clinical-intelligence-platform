@@ -1,12 +1,19 @@
+import logging
+from time import time
 from uuid import uuid4
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from sqlalchemy.exc import SQLAlchemyError
+from starlette.concurrency import run_in_threadpool
 
 from app.api.routes import audit, health, security
 from app.core.config import get_settings
+from app.core.rate_limit import increment_request_count
+from app.db.session import engine
 
+logger = logging.getLogger(__name__)
 settings = get_settings()
 app = FastAPI(
     title=settings.app_name,
@@ -23,7 +30,43 @@ async def request_context_and_security_headers(request: Request, call_next):
     if not request_id or len(request_id) > 80 or not request_id.replace("-", "").replace("_", "").isalnum():
         request_id = str(uuid4())
     request.state.request_id = request_id
-    response = await call_next(request)
+
+    response = None
+    if request.url.path.startswith("/api/v1/"):
+        client_host = request.client.host if request.client else None
+        try:
+            count, reset_at = await run_in_threadpool(
+                increment_request_count,
+                engine,
+                client_host=client_host,
+                now=int(time()),
+                window_seconds=settings.api_rate_limit_window_seconds,
+            )
+        except SQLAlchemyError:
+            # Fail closed: do not silently disable the API rate limit when its store is unavailable.
+            logger.error("API rate-limit storage unavailable; request denied")
+            response = JSONResponse(
+                status_code=503,
+                content={"detail": "API protection is temporarily unavailable", "request_id": request_id},
+            )
+        else:
+            limit = settings.api_rate_limit_requests_per_minute
+            remaining = max(0, limit - count)
+            if count > limit:
+                retry_after = max(1, reset_at - int(time()))
+                response = JSONResponse(
+                    status_code=429,
+                    content={"detail": "Rate limit exceeded", "request_id": request_id},
+                    headers={"Retry-After": str(retry_after)},
+                )
+            else:
+                response = await call_next(request)
+            response.headers["RateLimit-Limit"] = str(limit)
+            response.headers["RateLimit-Remaining"] = str(remaining)
+            response.headers["RateLimit-Reset"] = str(max(0, reset_at - int(time())))
+    else:
+        response = await call_next(request)
+
     response.headers["X-Request-ID"] = request_id
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"

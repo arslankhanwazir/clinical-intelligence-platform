@@ -1,32 +1,33 @@
-# M4 implementation record — first secure API slice
+# M4 implementation record — secure API foundation and hardening
 
-**Status:** Initial implementation package; synthetic local testing only.
+**Scope:** synthetic-only development. No live Keycloak realm, production PostgreSQL environment, PHI or clinical use is authorized by this record.
 
-## Implemented in this slice
+## Implemented in the code slice
 
-- FastAPI application entry point and health endpoints.
-- External OIDC/JWKS access-token verification boundary; no local password store.
-- Keycloak realm/client role claim extraction with an explicit role allow-list.
-- Tenant/site scope validation from signed token claims.
-- Privileged-role MFA assurance check against configured OIDC `acr` values.
-- SQLAlchemy schema for tenant, site, user membership and audit event records.
-- Alembic migration with PostgreSQL RLS policies and append-only audit triggers; SQLite triggers support local immutability tests.
-- Audit hash chain and request correlation ID.
-- Safe request-validation errors and baseline API security headers.
-- Test suite for implemented behavior.
+- FastAPI application entry point, health endpoints, request IDs and baseline security headers.
+- OIDC/JWKS access-token validation using RS256, issuer, audience, expiry and required claims; local HTTP-JWKS test verifies real key retrieval over HTTP.
+- Explicit allow-list for roles and server-side privileged MFA ACR policy.
+- Tenant/site scope validation from signed claims plus active database tenant, site and user-membership checks.
+- Site-to-tenant relationship checks; site-scoped memberships require an explicit site selection.
+- Database membership role and signed token role must agree before protected role access is granted.
+- PostgreSQL transaction-local `app.tenant_id` context before queries protected by row-level security.
+- Alembic migration for tenant, site, membership and audit tables; second migration adds shared API rate-limit buckets.
+- Fixed-window API rate limiting backed by the database and keyed by a digest of the connecting client address. API requests fail closed if the limiter store is unavailable.
+- Audit hash chain, SQLite and PostgreSQL append-only triggers, and request correlation IDs.
+- Repository-root resolution for `.env` and relative SQLite database paths.
+- Production settings require explicit PostgreSQL, OIDC configuration and an explicitly supplied MFA ACR allow-list.
+- CI runs a SQLite suite and a PostgreSQL suite using a restricted application role without superuser or `BYPASSRLS` privileges.
 
-## Not claimed as complete
+## Known limits / separate gates
 
-Keycloak is not running/configured. PostgreSQL is not installed/provisioned or integration-tested. Production secrets management, TLS termination, network controls, backup/restore, independent security review and penetration testing remain open. No clinical data or logic is included.
+- A real Keycloak realm is not yet configured. The local HTTP-JWKS test validates the JWT/JWKS retrieval contract, not Keycloak realm configuration or its MFA user journey.
+- PostgreSQL RLS is to be evidenced by the new GitHub Actions integration job; do not infer that it passed until the job is green.
+- Rate limiting is a fixed-window per-connecting-address control. Reverse-proxy deployments must configure trusted client-address handling at the edge; do not trust arbitrary `X-Forwarded-For` headers. A future distributed multi-region edge design may require a dedicated limiter service.
+- Expired rate-limit windows are pruned globally during API traffic. If API traffic stops, periodic database maintenance is still needed to remove the final expired window.
+- Production secrets manager, TLS, firewall/egress controls, backup/restore, monitoring, incident response and independent security review remain deployment gates.
+- The `purpose_of_use` claim is captured but is not yet an authorization rule; its allowed values and workflow policy must be approved through M1/M2 before PHI or clinical use.
+- M1/M2 clinical, source-rights, privacy/legal and regulatory approvals remain outstanding. No PHI, real clinic integration, clinical rules, pilot or patient-care use is permitted.
 
 ## Workstation constraints
 
-Local development uses Python 3.13.14 from `F:\n8n-scraper\python.exe` as the base interpreter, with a NORTHSTAR-only virtual environment at `.venv`. The other project environment is not modified. SQLite is for local synthetic tests only. Docker is not available on the recorded workstation, so Keycloak/PostgreSQL production-equivalent services are not provisioned here.
-
-## M4 evidence to capture
-
-- Dependency installation output and package versions.
-- Alembic migration success.
-- Automated test output.
-- GitHub Actions API CI result.
-- Later: PostgreSQL RLS integration test under a non-owner/non-BYPASSRLS account, real Keycloak OIDC and MFA integration test, and security review.
+Local development remains in the NORTHSTAR-only `.venv`; no other project environment is modified. SQLite is synthetic local development only. The laptop does not need Docker for local coding; PostgreSQL integration validation runs in GitHub Actions.

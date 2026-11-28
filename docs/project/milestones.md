@@ -4,9 +4,12 @@
 
 ## Current status
 
-- **M0 - IN PROGRESS / close-out checks pending.** The private repository and first push are complete. `CONTRIBUTING.md` and the Gitleaks workflow are now being added. Branch protection and a successful secret-scan run still require verification. Ownership/IP obligations must be reviewed by the project owner.
-- **M1 - DRAFT PACK PREPARED / not signed off.** Product charter and workflow artifacts are being prepared. A target clinic and qualified clinician reviewer have not yet been identified in this repository. The target-clinic as-is workflow and clinician sign-off therefore remain open.
-- **M2 onward - NOT STARTED.**
+- **M0 - COMPLETE.** Private repository, ownership/IP and clean-room records, workstation baseline, contribution policy and secret-scanning workflow are in place. GitHub Free branch-protection limitations are documented; Gitleaks success was owner-confirmed.
+- **M1 - DOCUMENTATION PREPARED / EXIT GATE BLOCKED.** Product brief, requirements, intended-use draft, proposed workflow, personas, non-goals, metrics and risks are recorded. A target-clinic observed workflow and qualified clinician approval remain outstanding.
+- **M2 - DESK RESEARCH PREPARED / EXIT GATE BLOCKED.** Candidate source and permission registers, exclusions, approval workflow, preliminary hazards and regulatory assessment notes are recorded. Qualified clinical/source-rights and regulatory approvals remain outstanding.
+- **M3 - COMPLETE: DESIGN ACCEPTED FOR SYNTHETIC-ONLY DEVELOPMENT.** Architecture, threat model, data flow, ADRs, role matrix, privacy questions and deployment decision were accepted by the product owner and merged into `main`. This is not independent security certification or PHI authorization.
+- **M4 - IN PROGRESS.** Secure API foundation is merged into `main`; 16 local tests passed before the current hardening work. Tenant/site membership, rate limiting, PostgreSQL RLS verification and CI hardening are being added. Do not mark M4 complete until its updated checklist and CI evidence pass.
+- **M5-M13 - NOT STARTED.** No patient-context feature, clinical rules, evidence ingestion, AI synthesis, frontend build, pilot or launch work is authorized by this status update.
 
 ## Roadmap
 
