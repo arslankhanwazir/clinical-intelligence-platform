@@ -1,6 +1,6 @@
 # M3 - Data-flow and trust-boundary design
 
-**Status:** Proposed; synthetic data only. No PHI flow is approved.
+**Status:** Product-owner accepted design for synthetic-only development. No PHI flow is approved.
 
 ```mermaid
 flowchart LR

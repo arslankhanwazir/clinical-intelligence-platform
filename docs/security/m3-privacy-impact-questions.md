@@ -1,6 +1,6 @@
 # M3 - Privacy impact assessment questions
 
-**Status:** Question set only; no legal/privacy assessment completed. No real patient data is approved for development.
+**Status:** Product-owner accepted question set. No legal/privacy assessment completed. Product owner is assigned to obtain qualified review before any PHI environment is designed or hosted. No real patient data is approved for development.
 
 ## Data inventory and purpose
 

@@ -1,6 +1,6 @@
 # M3 - Deployment topology decision proposal
 
-**Status:** Proposed design decision for review; no hosting provider or production environment has been selected.
+**Status:** Product-owner accepted topology design for synthetic-only planning; no hosting provider or production environment has been selected.
 
 ## Environments
 

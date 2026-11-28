@@ -1,13 +1,13 @@
 # ADR-0002: Central identity with OIDC and server-side authorization
 
-**Status:** Proposed for M3 review.
+**Status:** Accepted by product owner as a design decision; implementation and independent verification pending.
 **Date:** 28 November 2026.
 
 ## Context
 
 The platform needs authenticated users, privileged MFA, clear role separation and patient/site/tenant-level authorization. Identity provider roles alone cannot enforce every resource-level rule.
 
-## Decision proposal
+## Accepted design decision
 
 - Use Keycloak as the initial OIDC identity-provider candidate, subject to deployment and maintenance review.
 - The API validates issuer, audience, signature, expiry and required authentication context.

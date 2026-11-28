@@ -1,13 +1,13 @@
 # ADR-0004: Append-only, tamper-evident audit event path
 
-**Status:** Proposed for M3 review.
+**Status:** Accepted by product owner as a design decision; implementation and independent verification pending.
 **Date:** 28 November 2026.
 
 ## Context
 
 Security-sensitive access, imports, policy decisions, evidence/rule/model versions and human review actions need attributable audit records.
 
-## Decision proposal
+## Accepted design decision
 
 - Use a dedicated append-only audit write path separate from normal application update/delete permissions.
 - Record actor, tenant/site, action, target reference, timestamp, outcome, correlation ID and relevant source/rule/model/prompt versions and artefact hash, while minimizing unnecessary clinical payload.

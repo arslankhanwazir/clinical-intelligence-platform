@@ -59,3 +59,7 @@ Not started. M4 secure platform work follows M3 acceptance. M5 may use synthetic
 ## Operating rule
 
 If clinic, clinician, approved evidence, commercial permissions or regulatory advice are unavailable, continue with architecture, infrastructure, security and synthetic-only interface work. Do not invent clinic workflows, clinical thresholds, guideline logic, measured benefits, approvals or performance claims.
+
+## M3 Owner Approval Addendum
+
+Product owner approved all ten M3 architecture decisions on 28 November 2026 for synthetic-only development. Independent security review and privacy/legal review remain outstanding. This approval does not authorize real patient data, clinical use, pilot or production.

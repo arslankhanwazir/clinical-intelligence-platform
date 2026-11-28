@@ -1,6 +1,6 @@
 # M3 - Initial security threat model
 
-**Status:** Initial design draft. Threat likelihood and residual risk have not been formally rated. This is a platform security threat model, not the M2 clinical hazard analysis.
+**Status:** Product-owner accepted initial design for synthetic-only development. Threat likelihood and residual risk have not been independently rated. This is a platform security threat model, not the M2 clinical hazard analysis.
 
 ## Assets to protect
 
