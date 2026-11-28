@@ -3,24 +3,11 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
-env/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.coverage
-coverage.xml
-htmlcov/
 
-# Node / frontend builds
-node_modules/
-.next/
-dist/
-build/
-coverage/
-playwright-report/
-test-results/
-
-# Secrets and local configuration
+# Local config and secrets
 .env
 .env.*
 !.env.example
@@ -28,18 +15,21 @@ test-results/
 *.key
 secrets/
 
-# Local/private data and generated artifacts
+# Local databases and data
 /data/
+*.sqlite3
+*.db
 uploads/
 logs/
 reports/generated/
-*.sqlite3
-*.db
-*.log
-*.bak
+
+# Node and frontend
+node_modules/
+.next/
+dist/
+build/
 
 # OS and editor
 Thumbs.db
 .DS_Store
-.idea/
 .vscode/
