@@ -15,7 +15,7 @@ INCREMENT_SQL = text(
 )
 
 DELETE_OLD_SQL = text(
-    "DELETE FROM api_rate_limit_buckets WHERE key_hash = :key_hash AND window_start < :window_start"
+    "DELETE FROM api_rate_limit_buckets WHERE window_start < :window_start"
 )
 
 
@@ -33,7 +33,7 @@ def increment_request_count(engine: Engine, *, client_host: str | None, now: int
             INCREMENT_SQL,
             {"key_hash": key_hash, "window_start": window_start},
         ).scalar_one()
-        # Retain only the active window for each client key to keep this table bounded.
+        # Remove expired windows for every client; retain only the active window buckets.
         connection.execute(
             DELETE_OLD_SQL,
             {"key_hash": key_hash, "window_start": window_start},

@@ -23,7 +23,7 @@
 - A real Keycloak realm is not yet configured. The local HTTP-JWKS test validates the JWT/JWKS retrieval contract, not Keycloak realm configuration or its MFA user journey.
 - PostgreSQL RLS is to be evidenced by the new GitHub Actions integration job; do not infer that it passed until the job is green.
 - Rate limiting is a fixed-window per-connecting-address control. Reverse-proxy deployments must configure trusted client-address handling at the edge; do not trust arbitrary `X-Forwarded-For` headers. A future distributed multi-region edge design may require a dedicated limiter service.
-- Old rate-limit buckets are pruned for the same client key as newer windows arrive; broader operational retention and monitoring remain deployment work.
+- Expired rate-limit windows are pruned globally during API traffic. If API traffic stops, periodic database maintenance is still needed to remove the final expired window.
 - Production secrets manager, TLS, firewall/egress controls, backup/restore, monitoring, incident response and independent security review remain deployment gates.
 - The `purpose_of_use` claim is captured but is not yet an authorization rule; its allowed values and workflow policy must be approved through M1/M2 before PHI or clinical use.
 - M1/M2 clinical, source-rights, privacy/legal and regulatory approvals remain outstanding. No PHI, real clinic integration, clinical rules, pilot or patient-care use is permitted.
