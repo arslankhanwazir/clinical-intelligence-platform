@@ -1,6 +1,6 @@
 # M3 - Preliminary roles and permissions matrix
 
-**Status:** Draft design. Roles and actions require product-owner and security review before implementation. The matrix is not a substitute for per-object authorization.
+**Status:** Product-owner accepted design baseline. Independent security review and implementation tests remain required before PHI or pilot. The matrix is not a substitute for per-object authorization.
 
 ## Proposed roles
 

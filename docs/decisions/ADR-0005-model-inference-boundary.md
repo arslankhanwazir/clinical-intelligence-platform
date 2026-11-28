@@ -1,13 +1,13 @@
 # ADR-0005: Bounded model gateway; local/private inference direction
 
-**Status:** Proposed for M3 review.
+**Status:** Accepted by product owner as a design decision; implementation and independent verification pending.
 **Date:** 28 November 2026.
 
 ## Context
 
 The model must not become the system of record, authorization engine, clinical policy engine or audit authority. Data protection and patient privacy constrain inference location and providers.
 
-## Decision proposal
+## Accepted design decision
 
 - Create a provider-agnostic model gateway; avoid coupling product modules to one model vendor.
 - Local/private inference is the preferred direction for any later sensitive-data workflow.

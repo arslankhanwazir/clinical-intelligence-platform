@@ -1,6 +1,6 @@
 # M3 - System context and architecture proposal
 
-**Status:** Proposed architecture for owner review; not implemented or security-approved.
+**Status:** Product-owner accepted design baseline for synthetic-only development; not implemented or security-approved.
 **Scope:** NORTHSTAR / Clinical Intelligence Platform, V1 planning boundary.
 
 ## Product boundary from the approved planning PDFs

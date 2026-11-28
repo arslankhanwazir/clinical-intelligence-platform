@@ -1,13 +1,13 @@
 # ADR-0003: Single-customer deployment for the first pilot; tenant-aware design
 
-**Status:** Proposed for M3 review.
+**Status:** Accepted by product owner as a design decision; implementation and independent verification pending.
 **Date:** 28 November 2026.
 
 ## Context
 
 Cross-tenant data leakage is an unacceptable design risk. The first pilot should avoid unnecessary shared-SaaS complexity while preserving tenant/site scope in the application model.
 
-## Decision proposal
+## Accepted design decision
 
 - Target one customer/site deployment for the first controlled pilot, pending institutional approval.
 - Persist tenant and site identifiers on relevant records and audit events even in a single-customer installation.
