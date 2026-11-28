@@ -1,0 +1,35 @@
+name: NORTHSTAR API CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "services/api/**"
+      - ".github/workflows/api-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "services/api/**"
+      - ".github/workflows/api-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: services/api/requirements-dev.txt
+      - name: Install pinned dependencies
+        run: python -m pip install -r services/api/requirements-dev.txt
+      - name: Run API tests
+        env:
+          PYTHONPATH: services/api
+          APP_ENV: test
+          DATABASE_URL: sqlite:///./northstar_ci.sqlite3
+        run: python -m pytest services/api/tests -q
